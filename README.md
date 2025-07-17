@@ -24,14 +24,14 @@ A simple RESTful API for managing your tasks, built with Spring Boot and backend
 **Maven:** A robust dependency management and build automation tool.
 
 # API Endpoints
-The API base URL is (http://localhost:8080/api/todos).
+The API base URL is http://localhost:8080/api/todos.
 
-(POST) -> (/add) -> create a To-Do item
+**POST** -> /add -> create a To-Do item
 
-(GET) -> (/all) -> Get all To-Do items
+**GET** -> /all -> Get all To-Do items
 
-(GET) -> (/{id}) -> Get a To-Do item by ID
+**GET** -> /{id} -> Get a To-Do item by ID
 
-(PUT) -> (/{id}) -> Update an existing To-Do item
+**PUT** -> /{id} -> Update an existing To-Do item
 
-(DELETE) -> (/{id}) -> Delete a To-Do item by ID
+**DELETE** -> /{id} -> Delete a To-Do item by ID
