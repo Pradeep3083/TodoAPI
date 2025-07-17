@@ -2,6 +2,16 @@
 A simple RESTful API for managing your tasks, built with Spring Boot and backend by a databse. This project demostrates fundamental CRUD (CREATE, READ, UPDATE, DELETE) operations for To-Do items
 
 # Features
+Create To-Do: Add new tasks to your list.
+
+Get All To-Dos: Retrieve all available tasks.
+
+Get To-Do by ID: Fetch a specific task using its unique identifier.
+
+Update To-Do: Modify existing tasks (e.g., change description, mark as completed).
+
+Delete To-Do: Remove tasks from the list.
+
 **Create To-Do:** Add new tasks to your list.
 **Get All To-Dos:** Retrieve all available tasks.
 **Get To-Do by ID:** Fetch a specific task using its unique identifier
