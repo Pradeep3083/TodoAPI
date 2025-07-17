@@ -12,7 +12,7 @@ import java.util.Optional;
 public class TodoController {
     private TodoService todoService;
 
-    public TodoController(TodoService todoService) { // ✅ Constructor for injection
+    public TodoController(TodoService todoService) {
         this.todoService = todoService;
     }
 
