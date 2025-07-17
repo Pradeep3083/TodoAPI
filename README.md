@@ -1,14 +1,14 @@
 # 📝 To-Do List API
 
-A simple and clean RESTful API for managing tasks, built using **Spring Boot** and backed by a **relational database** (e.g., MySQL/H2).  
-This project demonstrates fundamental **CRUD** operations (Create, Read, Update, Delete) for To-Do items.
+A simple RESTful **To-Do List API** built using **Spring Boot**, **Java 17**, and **Spring Data JPA**.  
+This project supports basic CRUD operations for managing tasks (To-Do items) and persists data using a relational database (MySQL).
 
 ---
 
 ## 🚀 Features
 
 - ✅ **Create To-Do:** Add new tasks to your list.
-- 📋 **Get All To-Dos:** Retrieve all available tasks.
+- 📋 **Get All To-Do's:** Retrieve all available tasks.
 - 🔍 **Get To-Do by ID:** Fetch a specific task using its unique identifier.
 - ✏️ **Update To-Do:** Modify existing tasks (e.g., change description, mark as completed).
 - 🗑️ **Delete To-Do:** Remove tasks from the list.
@@ -22,6 +22,7 @@ This project demonstrates fundamental **CRUD** operations (Create, Read, Update,
 - **Spring Data JPA** – Simplified data access using repositories
 - **Hibernate** – JPA implementation for ORM (Object Relational Mapping)
 - **Maven** – Dependency management and build tool
+- **Relational Database** (MySQL)
 
 ---
 
@@ -37,6 +38,13 @@ This project demonstrates fundamental **CRUD** operations (Create, Read, Update,
 | PUT    | `/{id}`      | Update a To-Do by ID          |
 | DELETE | `/{id}`      | Delete a To-Do by ID          |
 
+
 ---
+
+## 🙋 Author
+
+**Pradeep Sai Lakshman Guniganti**  
+📫 [LinkedIn](https://www.linkedin.com/in/pradeep-sai-lakshman-guniganti-53181826a?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BFcmNjMFtR%2F%2BKBIaixJBtwQ%3D%3D)  
+💻 [GitHub](https://github.com/Pradeep3083)
 
 
