@@ -17,47 +17,54 @@ public class TodoController {
     }
 
     @PostMapping("/add")
-    public ResponseEntity<Todo> createTodo(@RequestBody Todo todo){
+    public ResponseEntity<String> createTodo(@RequestBody Todo todo){
         Todo createdTodo = todoService.createTodo(todo);
-        return new ResponseEntity<>(createdTodo, HttpStatus.CREATED);
+        return new ResponseEntity<>("Todo created successfully!", HttpStatus.CREATED);
     }
 
     @GetMapping("/all")
-    public ResponseEntity<List<Todo>> getAllTodos(){
+    public ResponseEntity<?> getAllTodos(){
         List<Todo> todos = todoService.getAllTodos();
-        return new ResponseEntity<>(todos, HttpStatus.OK);
+        if(todos.isEmpty()){
+            ApiResponse<List<Todo>> response = new ApiResponse<>("No Todos added yet.", HttpStatus.OK.value());
+            return new ResponseEntity<>(response,HttpStatus.OK);
+        }else{
+            return new ResponseEntity<>(todos,HttpStatus.OK);
+        }
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Todo> getTodoById(@PathVariable Integer id){
+    public ResponseEntity<?> getTodoById(@PathVariable Integer id){
         Optional<Todo> todoOptional = todoService.getTodoById(id);
         if(todoOptional.isPresent()){
-            return new ResponseEntity<>(todoOptional.get(), HttpStatus.OK);
+            Todo todo = todoOptional.get();
+            return new ResponseEntity<>(todo, HttpStatus.OK);
         }else{
+            ApiResponse<List<Todo>> response = new ApiResponse<>("Todo with ID "+id+" not found.", HttpStatus.NOT_FOUND.value());
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Todo> updateTodo(@PathVariable Integer id, @RequestBody Todo todoDetails){
+    public ResponseEntity<String> updateTodo(@PathVariable Integer id, @RequestBody Todo todoDetails){
         Optional<Todo> todoOptional = todoService.getTodoById(id);
         if (todoOptional.isPresent()){
             todoService.updateTodo(id, todoDetails);
-            return new ResponseEntity<>(todoOptional.get(),HttpStatus.OK);
+            String successMessage = "Todo with ID " + id + " updated successfully!";
+            return new ResponseEntity<>(successMessage,HttpStatus.OK);
         }else{
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>("Todo with ID "+id+" not found.",HttpStatus.NOT_FOUND);
         }
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteTodo(@PathVariable Integer id){
+    public ResponseEntity<String> deleteTodo(@PathVariable Integer id){
         if (todoService.getTodoById(id).isPresent()){
             todoService.deleteTodo(id);
-            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+            return new ResponseEntity<>("Todo with ID " + id + " deleted successfully",HttpStatus.OK);
         }else{
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>("Todo with ID "+id+" not found.",HttpStatus.NOT_FOUND);
         }
     }
-
 
 }
