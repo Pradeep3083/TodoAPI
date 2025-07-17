@@ -26,8 +26,7 @@ public class TodoController {
     public ResponseEntity<?> getAllTodos(){
         List<Todo> todos = todoService.getAllTodos();
         if(todos.isEmpty()){
-            ApiResponse<List<Todo>> response = new ApiResponse<>("No Todos added yet.", HttpStatus.OK.value());
-            return new ResponseEntity<>(response,HttpStatus.OK);
+            return new ResponseEntity<>("No Todos added yet.",HttpStatus.OK);
         }else{
             return new ResponseEntity<>(todos,HttpStatus.OK);
         }
@@ -40,8 +39,7 @@ public class TodoController {
             Todo todo = todoOptional.get();
             return new ResponseEntity<>(todo, HttpStatus.OK);
         }else{
-            ApiResponse<List<Todo>> response = new ApiResponse<>("Todo with ID "+id+" not found.", HttpStatus.NOT_FOUND.value());
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>("Todo with ID "+id+" not found.",HttpStatus.NOT_FOUND);
         }
     }
 
@@ -50,8 +48,7 @@ public class TodoController {
         Optional<Todo> todoOptional = todoService.getTodoById(id);
         if (todoOptional.isPresent()){
             todoService.updateTodo(id, todoDetails);
-            String successMessage = "Todo with ID " + id + " updated successfully!";
-            return new ResponseEntity<>(successMessage,HttpStatus.OK);
+            return new ResponseEntity<>("Todo with ID " + id + " updated successfully!",HttpStatus.OK);
         }else{
             return new ResponseEntity<>("Todo with ID "+id+" not found.",HttpStatus.NOT_FOUND);
         }
